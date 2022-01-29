@@ -10,6 +10,7 @@ public class EnemyPatrol : MonoBehaviour
     public Rigidbody2D rb;
     public Transform groundCheckPos;
     public LayerMask groundLayer;
+    public Collider2D bodyCollider;
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class EnemyPatrol : MonoBehaviour
 
     void Patrol()
     {
-        if (mustTurn) {
+        if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer)) {
             Flip();
         }
         rb.velocity = new Vector2(walkSpeed * Time.fixedDeltaTime, rb.velocity.y);

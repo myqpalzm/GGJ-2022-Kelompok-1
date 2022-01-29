@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     // For animating the player sprite
     Animator animator;
+    Animator blackScreenAnim;
+
+    public Vector2 cpPos;
 
 
     [Header("Events")]
@@ -37,12 +40,18 @@ public class PlayerController : MonoBehaviour
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        blackScreenAnim = GameObject.Find("BlackScreen").GetComponent<Animator>();
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
 
         if (OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
+    }
+
+    private void Start()
+    {
+        cpPos = transform.position;
     }
 
     private void FixedUpdate()
@@ -164,5 +173,23 @@ public class PlayerController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Checkpoint")) {
+            cpPos = other.transform.position;
+        }
+        
+        if (other.gameObject.CompareTag("Death Trigger")) {
+            blackScreenAnim.SetTrigger("Trigger");
+            Invoke("Respawn", 1f);
+            blackScreenAnim.SetTrigger("Trigger");
+        }
+    }
+
+    private void Respawn()
+    {
+        transform.position = cpPos;
     }
 }
