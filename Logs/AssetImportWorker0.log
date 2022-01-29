@@ -2778,3 +2778,4 @@ Received Import Request.
 Start importing Assets/Resources/Tilemap/Orange/Orange__Combined_78.asset using Guid(9dc059d052d7bd542a8ec197f6019f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9b1d0ae1138064bc8bd6901fb81c0cb') in 0.008551 seconds 
   Import took 0.013896 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
