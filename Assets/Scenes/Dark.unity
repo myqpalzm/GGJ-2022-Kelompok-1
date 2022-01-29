@@ -1757,10 +1757,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 588714621566454002, guid: 5cf45d0b891116e4e9f357592c24ef3c, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 77d0e5d70d5b6304b9aa057f3ffa5d72, type: 2}
     - target: {fileID: 588714621566454009, guid: 5cf45d0b891116e4e9f357592c24ef3c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1804,14 +1800,6 @@ PrefabInstance:
     - target: {fileID: 588714621566454009, guid: 5cf45d0b891116e4e9f357592c24ef3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 588714621566454011, guid: 5cf45d0b891116e4e9f357592c24ef3c, type: 3}
-      propertyPath: m_MovementSmoothing
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 588714621566454011, guid: 5cf45d0b891116e4e9f357592c24ef3c, type: 3}
-      propertyPath: m_WhatIsGround.m_Bits
-      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cf45d0b891116e4e9f357592c24ef3c, type: 3}

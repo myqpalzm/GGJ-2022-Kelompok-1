@@ -161,7 +161,7 @@ Animator:
   m_GameObject: {fileID: 588714621566453989}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77d0e5d70d5b6304b9aa057f3ffa5d72, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_JumpForce: 500
   m_CrouchSpeed: 0.36
-  m_MovementSmoothing: 0.05
+  m_MovementSmoothing: 0.09
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
@@ -192,6 +192,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 588714621067531106}
   m_CeilingCheck: {fileID: 588714620970694495}
   m_CrouchDisableCollider: {fileID: 0}
+  m_Grounded: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
