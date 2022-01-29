@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public PlayerController controller;
 
     public float runSpeed = 40f;
-    float horizontalMove = 0f;
-    bool jump = false;
+    public float horizontalMove = 0f;
+    public bool jump = false;
 
     void Update()
     {

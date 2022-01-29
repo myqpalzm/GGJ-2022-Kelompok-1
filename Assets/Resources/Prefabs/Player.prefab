@@ -188,7 +188,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 64
   m_GroundCheck: {fileID: 588714621067531106}
   m_CeilingCheck: {fileID: 588714620970694495}
   m_CrouchDisableCollider: {fileID: 0}
@@ -212,6 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 588714621566454011}
   runSpeed: 20
+  horizontalMove: 0
+  jump: 0
 --- !u!114 &588714621566454013
 MonoBehaviour:
   m_ObjectHideFlags: 0
