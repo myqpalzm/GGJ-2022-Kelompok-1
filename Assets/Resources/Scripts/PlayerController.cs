@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public float health;
     private bool isNebula;
     private bool isAttacking;
+    public GameObject bullet;
 
 
 
@@ -69,6 +70,15 @@ public class PlayerController : MonoBehaviour
         if (health < 0f)
         {
             Invoke("Resurrect", 0.1f);
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+            isAttacking = true;
+        }
+        else
+        {
+            isAttacking = false;
         }
     }
 
@@ -127,7 +137,8 @@ public class PlayerController : MonoBehaviour
                 animator.Play("jumpnebula");
             }
         }
-        else {
+        else
+        {
             if (m_Grounded)
             {
                 if (move == 0f && !isAttacking)
@@ -262,5 +273,20 @@ public class PlayerController : MonoBehaviour
         Invoke("RespawnPos", 1f);
         blackScreenAnim.SetTrigger("Trigger");
         health = 7f;
+    }
+
+    private void Attack()
+    {
+        if (isNebula)
+        {
+            GameObject proj = Instantiate(bullet);
+            var body = proj.GetComponent<Rigidbody2D>();
+
+            body.AddForce(Input.mousePosition - transform.position, ForceMode2D.Impulse);
+        }
+        else
+        {
+
+        }
     }
 }
