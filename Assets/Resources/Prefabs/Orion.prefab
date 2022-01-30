@@ -194,6 +194,7 @@ MonoBehaviour:
   m_CrouchDisableCollider: {fileID: 0}
   m_Grounded: 0
   cpPos: {x: 0, y: 0}
+  health: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -262,7 +263,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.4162209}
+  m_Offset: {x: 0, y: 1.44}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -273,7 +274,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.965129, y: 6.051929}
+  m_Size: {x: 6, y: 6.1}
   m_EdgeRadius: 0
 --- !u!58 &588714621566454014
 CircleCollider2D:

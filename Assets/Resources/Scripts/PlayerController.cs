@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class PlayerController : MonoBehaviour
     Animator blackScreenAnim;
     public Vector2 cpPos;
     public float health;
+    private bool isNebula;
+    private bool isAttacking;
 
 
 
@@ -40,6 +43,10 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        // Return the current Active Scene in order to get the current Scene name.
+        Scene scene = SceneManager.GetActiveScene();
+        isNebula = scene.name == "Dark";
+
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         blackScreenAnim = GameObject.Find("BlackScreen").GetComponent<Animator>();
@@ -59,7 +66,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (health < 0f) {
+        if (health < 0f)
+        {
             Invoke("Resurrect", 0.1f);
         }
     }
@@ -97,20 +105,49 @@ public class PlayerController : MonoBehaviour
         }
 
         // Decide the animation being played:
-        if (m_Grounded)
+        if (isNebula)
         {
-            if (move == 0f)
+            if (m_Grounded)
             {
-                animator.Play("idle");
+                if (move == 0f && !isAttacking)
+                {
+                    animator.Play("idlenebula");
+                }
+                else if (move != 0f && !isAttacking)
+                {
+                    animator.Play("runnebula");
+                }
+                else
+                {
+                    animator.Play("attacknebula");
+                }
             }
             else
             {
-                animator.Play("run");
+                animator.Play("jumpnebula");
             }
         }
-        else
-        {
-            animator.Play("jump");
+        else {
+            if (m_Grounded)
+            {
+                if (move == 0f && !isAttacking)
+                {
+                    animator.Play("idle");
+                }
+                else if (move != 0f && !isAttacking)
+                {
+                    animator.Play("run");
+                }
+                else
+                {
+                    animator.Play("attack");
+                }
+            }
+            else
+            {
+                animator.Play("jump");
+            }
+
         }
 
         //only control the player if grounded or airControl is turned on
@@ -187,18 +224,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Checkpoint")) {
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
             cpPos = other.transform.position;
         }
-        
-        if (other.gameObject.CompareTag("Death Trigger")) {
+
+        if (other.gameObject.CompareTag("Death Trigger"))
+        {
             Respawn();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy")) {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
             health -= 0.5f;
             m_Rigidbody2D.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
         }
