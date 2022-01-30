@@ -25,4 +25,14 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+    public void About()
+    {
+        Application.OpenURL("https://globalgamejam.org/2022/games/adventures-orion-nebula-1");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
