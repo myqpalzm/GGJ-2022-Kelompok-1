@@ -30980,7 +30980,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.610005, y: 0.46608022, z: -10.271408}
+  m_LocalPosition: {x: -2.5876937, y: 0.4661074, z: -10.271408}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -31086,8 +31086,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1362032422}
   - {fileID: 2066657596}
+  - {fileID: 1362032422}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31586,7 +31586,7 @@ RectTransform:
   m_LocalScale: {x: 14.2, y: 7.68, z: 1}
   m_Children: []
   m_Father: {fileID: 738510206}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -31748,6 +31748,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1421228750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 588714621566454011, guid: 5cf45d0b891116e4e9f357592c24ef3c, type: 3}
+  m_PrefabInstance: {fileID: 588714621752544010}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52630ead11acdee45b21f3f53037e037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1543476698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32192,7 +32203,7 @@ RectTransform:
   m_LocalScale: {x: 1.6, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 738510206}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -32260,6 +32271,7 @@ MonoBehaviour:
   healthState: 0
   player: {fileID: 0}
   currentHealth: {fileID: 0}
+  pc: {fileID: 1421228750}
 --- !u!1 &2115181765
 GameObject:
   m_ObjectHideFlags: 0
@@ -32396,6 +32408,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 588714621566454009, guid: 5cf45d0b891116e4e9f357592c24ef3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 588714621566454010, guid: 5cf45d0b891116e4e9f357592c24ef3c, type: 3}
+      propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 588714621566454011, guid: 5cf45d0b891116e4e9f357592c24ef3c, type: 3}

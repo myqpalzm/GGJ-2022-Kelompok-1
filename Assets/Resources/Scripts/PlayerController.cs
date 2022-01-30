@@ -20,9 +20,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     // For animating the player sprite
     Animator animator;
-    Animator blackScreenAnim;
 
+    Animator blackScreenAnim;
     public Vector2 cpPos;
+    public float health;
+
 
 
     [Header("Events")]
@@ -52,6 +54,14 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         cpPos = transform.position;
+        health = 7f;
+    }
+
+    private void Update()
+    {
+        if (health < 0f) {
+            Invoke("Resurrect", 0.1f);
+        }
     }
 
     private void FixedUpdate()
@@ -182,14 +192,35 @@ public class PlayerController : MonoBehaviour
         }
         
         if (other.gameObject.CompareTag("Death Trigger")) {
-            blackScreenAnim.SetTrigger("Trigger");
-            Invoke("Respawn", 1f);
-            blackScreenAnim.SetTrigger("Trigger");
+            Respawn();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy")) {
+            health -= 0.5f;
+            m_Rigidbody2D.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
+        }
+    }
+
+    private void RespawnPos()
+    {
+        transform.position = cpPos;
     }
 
     private void Respawn()
     {
-        transform.position = cpPos;
+        blackScreenAnim.SetTrigger("Trigger");
+        Invoke("RespawnPos", 1f);
+        blackScreenAnim.SetTrigger("Trigger");
+    }
+
+    private void Resurrect()
+    {
+        blackScreenAnim.SetTrigger("Trigger");
+        Invoke("RespawnPos", 1f);
+        blackScreenAnim.SetTrigger("Trigger");
+        health = 7f;
     }
 }

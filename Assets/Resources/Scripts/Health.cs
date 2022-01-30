@@ -6,18 +6,20 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public Sprite[] health;
-    public int healthState;
+    public float healthState;
     public GameObject player;
     public Sprite currentHealth;
+    public PlayerController pc;
 
     void Awake()
     {
-        healthState = 7;
+        healthState = pc.health;
         currentHealth = health[0];
     }
 
     void Update()
     {
+        healthState = pc.health;
         for (int i = 7; i >= healthState; i--) {
             if (i == 1) {
                 currentHealth = health[6];
@@ -36,6 +38,6 @@ public class Health : MonoBehaviour
             }
         }
 
-        gameObject.GetComponent<Image>().sprite = currentHealth;
+        GetComponent<Image>().sprite = currentHealth;
     }
 }
